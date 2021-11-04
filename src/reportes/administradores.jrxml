@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="prueba" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1b058789-fe63-4980-b258-76f7e8a88df7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     administrador.`idAdministrador` AS 'ID ADMIN',
+     administrador.`nombre` AS 'NOMBRE',
+     administrador.`telefono` AS 'TELEFONO',
+     administrador.`mail` AS 'CORREO'
+FROM
+     `administrador` administrador]]>
+	</queryString>
+	<field name="ID ADMIN" class="java.lang.Integer"/>
+	<field name="NOMBRE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TELEFONO" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CORREO" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="141" y="21" width="295" height="35" uuid="f22be733-ba4c-4dcd-a70c-176f145d81f2"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADMINISTRADORES]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="444" y="40" width="100" height="16" uuid="af215ba2-d7cc-4cce-90d4-c426999375c9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="444" y="21" width="111" height="20" uuid="c5874bb4-f744-449d-a895-aa7e377419c9"/>
+				<textElement textAlignment="Right">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de consulta]]></text>
+			</staticText>
+			<image>
+				<reportElement x="11" y="0" width="114" height="56" uuid="4c03fa84-75e2-499d-b1e9-e1407f76710b"/>
+				<imageExpression><![CDATA["C:\\Users\\WILL\\Documents\\NetBeansProjects\\pardosChicken\\src\\img\\iconPardosFac.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="41" y="0" width="100" height="20" uuid="31bb4029-25ef-4447-8966-de178a1e9e47"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ID ADMIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="0" width="158" height="20" uuid="16f217a2-547f-4860-a713-cd61b3777392"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="0" width="100" height="20" uuid="d4052b68-c131-4e15-8738-1afc602731ce"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="0" width="100" height="20" uuid="711a07c9-e399-45bd-8e96-9611394374b0"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CORREO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="41" y="0" width="100" height="20" uuid="024cb5a4-d440-4e7a-a532-0e80244e5448"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["0000"+$F{ID ADMIN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="146" y="0" width="158" height="20" uuid="bc61f52c-d7fa-4845-9308-57160a95cfea"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="0" width="100" height="20" uuid="5af29279-2106-4d8b-8b5d-edbcd618e08d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="0" width="100" height="20" uuid="fc177cf5-0bf8-487a-b7db-e2b90d6a5af4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{CORREO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

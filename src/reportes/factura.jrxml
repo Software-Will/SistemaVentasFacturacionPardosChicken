@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="xd" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0cd2ee2f-dc23-4f6d-bd39-f2609f0a2f13">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from facturatemp]]>
+	</queryString>
+	<field name="idPedido" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dniRuc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="administrador" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="metodoPago" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreProducto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precioProducto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="montoProducto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subtotal" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="igv" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="idPedido_1" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{idPedido}]]></variableExpression>
+	</variable>
+	<variable name="montoProducto_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{montoProducto}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="129" splitType="Stretch">
+			<staticText>
+				<reportElement x="163" y="46" width="228" height="33" uuid="26e7e3fc-5034-4dc8-a567-4e3742384766"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURA]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="138" height="79" uuid="1ab812b6-43bd-4af5-8efc-ec946202101d"/>
+				<imageExpression><![CDATA["C:\\Users\\WILL\\Documents\\NetBeansProjects\\pardosChicken\\src\\img\\iconPardosFac.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="79" width="136" height="20" uuid="101aa152-e279-400f-8ed1-00e604dafb81"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Lima Metropolitana - Perú]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="99" width="136" height="20" uuid="b2bad1cf-b019-493d-8016-38feaabe5a5c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[987 654 321 - 01987 543 21]]></text>
+			</staticText>
+			<image>
+				<reportElement x="409" y="0" width="63" height="36" uuid="b7717453-2079-4ba4-ad1f-d1f0af734c87"/>
+				<imageExpression><![CDATA["C:\\Users\\WILL\\Documents\\NetBeansProjects\\pardosChicken\\src\\img\\visa .png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="409" y="36" width="146" height="33" uuid="79eff176-8c25-4c81-bfe6-5313913773dc"/>
+				<imageExpression><![CDATA["C:\\Users\\WILL\\Documents\\NetBeansProjects\\pardosChicken\\src\\img\\pagoEfectivo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="472" y="0" width="61" height="36" uuid="ad8c52bb-0d8f-4572-866f-5615d90c4b60"/>
+				<imageExpression><![CDATA["C:\\Users\\WILL\\Documents\\NetBeansProjects\\pardosChicken\\src\\img\\mastercard.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="411" y="69" width="128" height="43" uuid="9db876ee-e67b-4347-9c8f-81bab7af2215"/>
+				<imageExpression><![CDATA["C:\\Users\\WILL\\Documents\\NetBeansProjects\\pardosChicken\\src\\img\\dinersClub.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="45" y="0" width="118" height="20" uuid="bf4f89bb-7ffb-4bec-9299-bb6b2f85f57f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA DE ATENCION: ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="163" y="0" width="100" height="20" uuid="8fdc4e7c-7c06-4271-9d3e-ea8e9f1a01d4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="311" y="20" width="100" height="20" uuid="1b411d7b-cde1-4e35-9a41-3b3410df57a4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATENDIDO POR: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="20" width="66" height="20" uuid="4b572e74-d17f-4ef0-bc1e-8abb4cdb182b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ CLIENTE: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="40" width="100" height="20" uuid="b1a2e30a-d229-40a9-ac86-575363026a0d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[METODO DE PAGO: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="40" width="66" height="20" uuid="a360f917-9c5f-4e65-ac36-0d68f240c19a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI | RUC:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="343" y="0" width="66" height="20" uuid="898c6c10-9dfb-4839-a79d-6fea92d0f945"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="111" y="20" width="100" height="20" uuid="d3b26146-dc4e-4dbe-b549-4cadb3435aab"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombreCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="111" y="40" width="88" height="20" uuid="2e6777a4-474b-498c-8990-fec8dad913c5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " +$F{dniRuc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="0" width="100" height="20" uuid="3b8ae778-b29a-4b1f-b8f5-d1ac2618ede8"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="20" width="100" height="20" uuid="af2e2fd3-2516-4197-818a-aab1b7c7eeb0"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{administrador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="40" width="100" height="20" uuid="62b20666-2c78-498d-9463-1e0b63bb43f5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{metodoPago}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="64" y="8" width="100" height="20" uuid="fe0ec574-3355-446c-ba86-8237a9fb4bd9"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRODUCTOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="8" width="100" height="20" uuid="bc8350d7-4959-49ec-b4ad-5b690ca3f491"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="8" width="100" height="20" uuid="d8ac3260-72f8-463c-9910-713ff17a0747"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO UNITARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="8" width="100" height="20" uuid="5a810fe1-fc18-45f8-8c48-c7fc7609c493"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONTO PRODUCTO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="64" y="3" width="100" height="20" uuid="45bde55d-1057-46b5-be28-d1817ce5f375"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreProducto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="3" width="100" height="20" uuid="193fb3f2-08c1-46e0-ad18-516426375538"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="3" width="100" height="20" uuid="d5a5e0be-ecf7-4b11-ba24-ac4e040d2da3"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["S/ " + $F{precioProducto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="3" width="100" height="20" uuid="6a115756-e15a-4df1-8501-7d5f3ce1117f"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["S/ " + $F{montoProducto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="99" splitType="Stretch">
+			<staticText>
+				<reportElement x="376" y="60" width="79" height="20" uuid="9a673bff-28d1-43d0-ab34-e5485640d2ed"/>
+				<textElement>
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONTO TOTAL:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="40" width="79" height="20" uuid="aadf84c2-2295-4742-bcc7-7378b12692b0"/>
+				<textElement textAlignment="Right">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IGV 18%: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="20" width="79" height="20" uuid="5e79f9f2-25a0-4223-a3b4-f1030739c264"/>
+				<textElement textAlignment="Right">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUB TOTAL: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="40" width="100" height="20" uuid="bd6c4cac-4328-4aea-acef-8f7dba1bfe96"/>
+				<textElement>
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["S/ " +$F{igv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="20" width="100" height="20" uuid="8d84feaa-b16e-40d9-9800-6e2d8967570e"/>
+				<textElement>
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["S/ " +$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="60" width="100" height="20" uuid="9a3ca9b3-54c4-4882-adf2-728521d79056"/>
+				<textElement>
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["S/ " +$F{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20" uuid="36587137-93b6-408a-b714-62498828eba5"/>
+				<text><![CDATA[Horario de atención]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="185" height="20" uuid="8ebdd09f-b722-49a7-90a2-7532d5a1e35d"/>
+				<text><![CDATA[Lunes a Sabados 11:00 am - 11:00 pm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="199" height="20" uuid="5059f58e-472f-4f8d-b685-57fbe287a0da"/>
+				<text><![CDATA[Domingos y Feriados 10:00 am - 8:00pm]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

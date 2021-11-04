@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="carta" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f839733-b1f5-432a-a018-c45eadc82476">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from prod_view]]>
+	</queryString>
+	<field name="idProducto" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomProd" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="precio" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Categoría" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="idProducto_1" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{idProducto}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="138" height="79" uuid="2d668da5-e1a5-4a12-87cf-841a73f6873c"/>
+				<imageExpression><![CDATA["C:\\Users\\WILL\\Documents\\NetBeansProjects\\pardosChicken\\src\\img\\iconPardosFac.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="173" y="20" width="221" height="35" uuid="c49c689e-3ca2-4a38-914e-b9102a345ea5"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CARTA]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="39" width="100" height="16" uuid="32ba7118-0e7d-410f-aa32-7eeae4f65a84"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="440" y="20" width="115" height="20" uuid="f1e436b4-9193-4bc5-9fa9-5fcaca94e297"/>
+				<textElement textAlignment="Right">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de consulta]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="92" y="0" width="164" height="20" uuid="4998f1d6-14aa-4f24-a71f-b0f45021d5f3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRODUCCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="0" width="100" height="20" uuid="cd367ef4-e4e5-4ac5-90af-957eb7b37e4a"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PRECIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="0" width="100" height="20" uuid="9caaf425-c647-4f88-aa63-891847ecfd5d"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CATEGORIA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="92" y="0" width="164" height="20" uuid="0ecaacb6-9fe1-498c-8f6e-d0c3eaedbc8e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{nomProd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="0" width="100" height="20" uuid="f574e5e6-45bc-40c8-97c0-417272f29b78"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["S/ " + $F{precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="356" y="0" width="100" height="20" uuid="95282546-49de-4d34-9fd4-4f26d81b86e6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Categoría}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="220" y="26" width="96" height="20" uuid="46316ace-e92d-4309-8925-162fb6cb4cbc"/>
+				<textElement textAlignment="Right">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PAGINA "+$V{PAGE_NUMBER}+" DE "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="316" y="26" width="58" height="20" uuid="c9e5c49b-4dab-4983-9b12-d4f5308764ba"/>
+				<textElement>
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="0" width="181" height="20" uuid="4eaa6506-4523-4c06-b76a-d1697deacff7"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CANTIDAD DE PRODUCTOS: "+$V{idProducto_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

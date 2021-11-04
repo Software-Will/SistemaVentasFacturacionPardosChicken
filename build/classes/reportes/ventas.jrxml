@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ventas2" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="373e9bc7-87d6-46ec-9dce-973ce9fc3f96">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from factura where fecha = CURDATE()]]>
+	</queryString>
+	<field name="idFactura" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dniRuc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefono" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="administrador" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subtotal" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="igv" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="metodoPago" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="idFactura_1" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{idFactura}]]></variableExpression>
+	</variable>
+	<variable name="total_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="6" width="138" height="79" uuid="6d078d2f-c2e6-48c5-9a89-3a57a9059247"/>
+				<imageExpression><![CDATA["C:\\Users\\WILL\\Documents\\NetBeansProjects\\pardosChicken\\src\\img\\iconPardosFac.png"]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="691" y="46" width="100" height="16" uuid="f0a417c4-9a5b-476e-a204-7438867414eb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="676" y="27" width="115" height="20" uuid="4b9713b8-dd29-44ea-90f0-0d974dd31a3e"/>
+				<textElement textAlignment="Right">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de reporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="27" width="279" height="47" uuid="b1af3098-77f3-4a2b-bad9-da3711f79363"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VENTAS DEL DIA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="63" height="20" uuid="892fdb67-bcd5-4320-99a3-8405c0b8d00a"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IDFAC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="63" y="0" width="127" height="20" uuid="58213d90-e191-447f-be26-5712ac024028"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="0" width="100" height="20" uuid="fecab8d3-e28f-4043-9937-9258582150ad"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI | RUC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="0" width="100" height="20" uuid="3d10bca9-d18e-4a5c-9b3c-7ceb90f05932"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="0" width="100" height="20" uuid="a055a1c7-0e00-419d-b768-338d42b73a8b"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADMINISTRADOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="490" y="0" width="69" height="20" uuid="68eedc47-7f26-4b2b-a7d9-f61c7ec8ae1c"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUBTOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="559" y="0" width="63" height="20" uuid="6f237ff6-5f62-4b61-b55d-19343a358102"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IGV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="622" y="0" width="54" height="20" uuid="eeae4e28-23fc-43e7-8e3b-f8424cde7a50"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="676" y="0" width="100" height="20" uuid="4a53ae0b-ca3f-42b7-b653-f57f3e990a76"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<text><![CDATA[METODO DE PAGO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="63" height="20" uuid="730a2dd8-d6ae-4863-8425-83583a28fc35"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["2021UTP"+$F{idFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="63" y="0" width="127" height="20" uuid="05dbc994-ad6c-4b85-8a87-23087141bed0"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="100" height="20" uuid="f198b315-3c42-4439-9f29-7f9722a42d3b"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dniRuc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="0" width="100" height="20" uuid="b9da5380-8d69-4cbb-b2c2-7e94d4e2d522"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="0" width="100" height="20" uuid="dee3451e-17c6-40bb-93ab-6286cb309fd1"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{administrador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="0" width="69" height="20" uuid="3d904bcd-f763-4996-b8ea-41003a5c2b2a"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["S/ "+$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="559" y="0" width="63" height="20" uuid="b742034c-3efb-4f2b-a376-de7c75fa4301"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["S/ "+$F{igv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="622" y="0" width="54" height="20" uuid="60ee56a8-35c2-45d9-b563-d4627dab4c59"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA["S/ "+$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="676" y="0" width="100" height="20" uuid="166d2a11-c4b4-48d0-b54e-f216d7e8fb71"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{metodoPago}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="163" splitType="Stretch">
+			<textField>
+				<reportElement x="613" y="11" width="189" height="20" uuid="f807e07e-6320-4874-9f49-40bb905f8708"/>
+				<textElement textAlignment="Right">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["VENTAS DEL DIA: "+ $V{idFactura_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="643" y="31" width="159" height="20" uuid="24ba7b64-fa24-4b3c-8619-072d6dbb6205"/>
+				<textElement textAlignment="Right">
+					<font fontName="JetBrains Mono" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["GANANCIAS: S/ "+$V{total_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="643" y="143" width="100" height="20" uuid="30d19f57-d70e-40e9-ba30-da666587a869"/>
+				<textElement textAlignment="Center">
+					<font fontName="JetBrains Mono" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIRMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="603" y="123" width="173" height="20" uuid="f789b843-ffb6-452b-8fac-b9fca6f6725b"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[-----------------------------------------------------------------------------]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
